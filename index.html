@@ -200,29 +200,45 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .nav-right{display:flex;align-items:center;gap:18px}
 .nav-phone{font-family:var(--font-mono);font-weight:700;font-size:0.95rem;color:var(--amber);display:inline-flex;align-items:center;gap:8px}
 .nav-phone:hover{color:var(--amber-dark)}
-.hamburger{display:none;width:40px;height:40px;border:1.5px solid var(--steel-700);border-radius:var(--r-sm);place-items:center}
+.hamburger{display:none;width:44px;height:44px;border:1.5px solid var(--steel-700);border-radius:var(--r-sm);place-items:center;background:var(--paper);color:var(--ink);cursor:pointer}
+.nav-call{display:none;width:44px;height:44px;border:1.5px solid var(--amber);background:var(--amber);color:var(--ink);border-radius:var(--r-sm);place-items:center;text-decoration:none;cursor:pointer}
+.nav-call i{font-size:1.05rem}
+.nav-call:hover{background:var(--amber-dark);border-color:var(--amber-dark)}
+.nav-actions{display:none;align-items:center;gap:8px}
 @media(max-width:980px){
-  .nav-links,.nav-right .btn,.nav-right .nav-phone{display:none}
-  .hamburger{display:grid}
+  .nav-links,.nav-right{display:none}
+  .nav-actions{display:flex}
+  .hamburger,.nav-call{display:grid}
 }
-/* mobile menu */
+
+/* mobile drawer */
+.mm-backdrop{
+  position:fixed;inset:0;z-index:150;background:rgba(6,22,40,0.55);
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.mm-backdrop.open{opacity:1;pointer-events:auto}
 .mobile-menu{
-  position:fixed;inset:0;z-index:200;background:var(--steel-900);
-  display:flex;flex-direction:column;padding:28px;
+  position:fixed;top:0;right:0;bottom:0;z-index:200;
+  width:min(340px, 82vw);background:var(--steel-900);
+  display:flex;flex-direction:column;padding:24px 22px 28px;
   transform:translateX(100%);transition:transform .3s ease;
+  box-shadow:-20px 0 40px -20px rgba(0,0,0,0.4);
+  overflow-y:auto;
 }
 .mobile-menu.open{transform:translateX(0)}
-.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;color:var(--paper)}
+.mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;color:var(--paper);gap:12px}
 .mm-top .nav-brand{color:var(--paper)}
-.mm-top .nav-mark{border-color:var(--paper)}
-.mm-close{width:40px;height:40px;border:1.5px solid var(--paper);border-radius:var(--r-sm);display:grid;place-items:center;color:var(--paper)}
-.mm-links{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:auto}
-.mm-links li{opacity:0;transform:translateY(12px);transition:all .3s ease;transition-delay:calc(var(--i) * 60ms)}
+.mm-top .nav-brand img{height:56px!important}
+.mm-close{width:40px;height:40px;border:1.5px solid var(--paper);border-radius:var(--r-sm);display:grid;place-items:center;color:var(--paper);background:transparent;cursor:pointer;flex-shrink:0}
+.mm-links{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
+.mm-links li{opacity:0;transform:translateY(12px);transition:all .3s ease;transition-delay:calc(var(--i) * 50ms)}
 .mobile-menu.open .mm-links li{opacity:1;transform:none}
-.mm-links a{font-family:var(--font-display);font-size:2.2rem;font-weight:700;text-transform:uppercase;color:var(--paper);letter-spacing:0.01em}
-.mm-footer{display:flex;flex-direction:column;gap:14px}
-.mm-footer a{color:var(--paper);font-family:var(--font-mono);font-size:1rem}
-.mm-footer .btn{justify-content:center}
+.mm-links a{display:block;padding:10px 4px;font-family:var(--font-display);font-size:1.4rem;font-weight:700;text-transform:uppercase;color:var(--paper);letter-spacing:0.02em;border-bottom:1px solid rgba(255,255,255,0.08)}
+.mm-links a:hover{color:var(--amber)}
+.mm-footer{display:flex;flex-direction:column;gap:12px;margin-top:auto;padding-top:20px}
+.mm-footer a{color:var(--paper);font-family:var(--font-mono);font-size:0.95rem;display:inline-flex;align-items:center;gap:10px;padding:10px 4px}
+.mm-footer a.mm-phone{color:var(--amber);font-weight:700;font-size:1.05rem}
+.mm-footer .btn{justify-content:center;padding:14px 18px;font-size:0.95rem}
 
 /* ============ HERO ============ */
 .hero{
@@ -292,23 +308,19 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 @media(max-width:980px){
   .hero-visual{aspect-ratio:16/11;max-width:100%}
 }
-
-/* Stats ribbon, integrated sentence, NOT the SaaS grid */
-.ribbon{
-  background:var(--steel-900);
-  color:var(--paper);
-  padding:28px 0;
-  position:relative;
-  z-index:2;
-  margin-top:-1px;
-  border-top:3px solid var(--amber);
+@media(max-width:620px){
+  .hero{padding:90px 0 60px}
+  .hero-grid{gap:26px}
+  .hero-meta{margin-bottom:14px;font-size:11px}
+  .hero h1{margin-bottom:14px}
+  .hero-sub{font-size:0.98rem;margin-bottom:22px}
+  .hero-ctas{margin-bottom:20px}
+  .hero-specline{gap:14px;font-size:0.76rem}
+  .hv-badge,.hv-chip{font-size:0.7rem;padding:6px 9px}
+  .about{padding:70px 0}
+  .services{padding:70px 0}
+  .services-head{margin-bottom:36px}
 }
-.ribbon-inner{display:flex;align-items:center;gap:40px;justify-content:space-between;flex-wrap:wrap}
-.ribbon-line{font-family:var(--font-display);font-size:clamp(1rem,1.7vw,1.35rem);font-weight:600;text-transform:uppercase;letter-spacing:0.02em;line-height:1.3}
-.ribbon-line b{color:var(--amber)}
-.ribbon-badges{display:flex;gap:28px;align-items:center;flex-wrap:wrap;font-family:var(--font-mono);font-size:0.86rem;font-weight:500;letter-spacing:0.01em;text-transform:none;color:var(--steel-300)}
-.ribbon-badges span{display:inline-flex;align-items:center;gap:8px}
-.ribbon-badges i{color:var(--amber)}
 
 /* ============ ABOUT, asymmetric, photo-led ============ */
 .about{padding:110px 0;background:var(--paper)}
@@ -410,8 +422,17 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
   .svc-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:620px){
-  .svc-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .svc-featured{gap:12px;margin-bottom:12px}
   .svc-featured .svc .svc-photo{aspect-ratio:16/11}
+  .svc-photo{aspect-ratio:4/3}
+  .svc-body{padding:12px 12px 14px;gap:6px}
+  .svc-body h3{font-size:0.95rem;line-height:1.2}
+  .svc-body p{font-size:0.78rem;line-height:1.4}
+  .svc-more{font-size:0.72rem}
+  .svc-tag{font-size:0.62rem;padding:4px 8px}
+  .svc-featured .svc h3{font-size:1.1rem}
+  .svc-featured .svc p{font-size:0.88rem}
 }
 
 /* ============ METHODOLOGY, timeline, fundamentally different layout ============ */
@@ -434,11 +455,16 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .tl-step h3{font-size:1.05rem;margin-bottom:8px;text-align:center;letter-spacing:0.03em}
 .tl-step p{font-size:0.88rem;color:var(--steel-600);text-align:center;line-height:1.5}
 @media(max-width:980px){
-  .timeline{grid-template-columns:1fr;gap:10px}
+  .method{padding:72px 0}
+  .method-head{margin-bottom:36px}
+  .timeline{grid-template-columns:repeat(6,1fr);gap:18px 10px}
   .timeline::before,.timeline::after{display:none}
-  .tl-step{display:grid;grid-template-columns:60px 1fr;gap:16px;text-align:left;padding:12px 0;border-bottom:1px solid var(--steel-200)}
-  .tl-step .tl-num{margin:0}
-  .tl-step h3,.tl-step p{text-align:left}
+  .tl-step{grid-column:span 2;padding:0 6px}
+  .tl-step:nth-child(4){grid-column:2 / span 2}
+  .tl-step:nth-child(5){grid-column:4 / span 2}
+  .tl-step .tl-num{width:34px;height:34px;margin:8px auto 14px;font-size:0.95rem;box-shadow:0 0 0 4px var(--paper-2)}
+  .tl-step h3{font-size:0.85rem;margin-bottom:6px;letter-spacing:0.02em}
+  .tl-step p{font-size:0.75rem;line-height:1.4}
 }
 
 /* ============ PROJECTS, image-forward uniform grid ============ */
@@ -489,16 +515,27 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .prj-loc i{color:var(--amber)}
 
 @media(max-width:980px){
-  .proj-featured{grid-template-columns:1fr}
+  .proj-featured{grid-template-columns:1fr;gap:14px;margin-bottom:14px}
   .proj-featured .prj{min-height:auto}
-  .proj-grid{grid-template-columns:repeat(2,1fr)}
-  .proj-grid .prj,
-  .proj-grid .prj:nth-child(4),
-  .proj-grid .prj:nth-child(5){grid-column:auto}
+  .proj-grid{grid-template-columns:repeat(6,1fr);gap:12px}
+  .proj-grid .prj{grid-column:span 2}
+  .proj-grid .prj:nth-child(4){grid-column:2 / span 2}
+  .proj-grid .prj:nth-child(5){grid-column:4 / span 2}
 }
 @media(max-width:620px){
-  .proj-grid{grid-template-columns:1fr}
-  .proj-featured .prj .prj-photo{aspect-ratio:16/11}
+  .projects{padding:70px 0 60px}
+  .projects-head{margin-bottom:32px}
+  .proj-grid{grid-template-columns:repeat(6,1fr);gap:10px}
+  .proj-grid .prj{grid-column:span 3}
+  .proj-grid .prj:nth-child(4){grid-column:2 / span 2 !important}
+  .proj-grid .prj:nth-child(5){grid-column:4 / span 2 !important}
+  .proj-featured .prj .prj-photo{aspect-ratio:16/10}
+  .prj-photo{aspect-ratio:4/3}
+  .prj-body{padding:12px 12px 14px;gap:6px}
+  .prj-body h4{font-size:0.82rem;line-height:1.18}
+  .prj-body p{font-size:0.72rem;line-height:1.4}
+  .prj-loc{font-size:0.66rem;padding-top:8px}
+  .prj-tag{font-size:0.6rem;padding:4px 7px;top:8px;left:8px}
 }
 
 .projects-foot{padding-top:48px;text-align:center}
@@ -695,9 +732,13 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px
       <a href="tel:+13059894959" class="nav-phone"><i class="fa-solid fa-phone-volume"></i> (305) 989-4959</a>
       <a href="#contact" class="btn"><i class="fa-solid fa-bolt-lightning"></i> Free Quote</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-actions">
+      <a href="tel:+13059894959" class="nav-call" aria-label="Call (305) 989-4959"><i class="fa-solid fa-phone-volume"></i></a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
   </div>
 </header>
+<div class="mm-backdrop" id="mmBackdrop"></div>
 
 <!-- mobile menu -->
 <aside class="mobile-menu" id="mobileMenu" aria-hidden="true">
@@ -748,22 +789,6 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px
         <img src="hero.webp" alt="Aerial view of a South Florida marina with megayachts docked at shore power pedestals" width="1200" height="720" fetchpriority="high" decoding="async">
         <div class="hv-badge"><i class="fa-solid fa-location-dot"></i> South Florida, aerial</div>
         <div class="hv-chip"><span class="live-dot"></span> Shore power, live</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== CREDENTIALS RIBBON, sentence, not metric grid ========== -->
-<section class="ribbon">
-  <div class="container">
-    <div class="ribbon-inner">
-      <div class="ribbon-line">
-        Founded <b>2005</b> &middot; marina specialists <b>since 2008</b> &middot; <b>25+ years</b> of field experience &middot; commercial &amp; residential too.
-      </div>
-      <div class="ribbon-badges">
-        <span><i class="fa-solid fa-certificate"></i> FL Unlimited License</span>
-        <span><i class="fa-solid fa-earth-americas"></i> FL + Bahamas</span>
-        <span><i class="fa-solid fa-shield-halved"></i> Fully Insured</span>
       </div>
     </div>
   </div>
@@ -1334,18 +1359,13 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px
 
   // Mobile menu
   const mm = document.getElementById('mobileMenu');
-  document.getElementById('hamburger').addEventListener('click', () => {
-    mm.classList.add('open'); mm.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-  });
-  document.getElementById('mmClose').addEventListener('click', () => {
-    mm.classList.remove('open'); mm.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  });
-  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    mm.classList.remove('open'); mm.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  }));
+  const mmBackdrop = document.getElementById('mmBackdrop');
+  function openMM(){ mm.classList.add('open'); mm.setAttribute('aria-hidden','false'); mmBackdrop.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMM(){ mm.classList.remove('open'); mm.setAttribute('aria-hidden','true'); mmBackdrop.classList.remove('open'); document.body.style.overflow=''; }
+  document.getElementById('hamburger').addEventListener('click', openMM);
+  document.getElementById('mmClose').addEventListener('click', closeMM);
+  mmBackdrop.addEventListener('click', closeMM);
+  mm.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMM));
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
