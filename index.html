@@ -429,7 +429,12 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .proj-featured .prj h4{font-size:1.6rem}
 .proj-featured .prj p{font-size:1rem}
 
-.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.proj-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.proj-grid .prj{grid-column:span 2}
+/* Center the last two cards (indexes 4, 5 of 5 cards) on desktop:
+   cards 1-3 fill cols 1-6 (spans 2 each); cards 4-5 shift to cols 2 and 4 (centered across the row) */
+.proj-grid .prj:nth-child(4){grid-column:2 / span 2}
+.proj-grid .prj:nth-child(5){grid-column:4 / span 2}
 
 .prj{
   position:relative;background:var(--steel-800);border-radius:var(--r-md);
@@ -462,6 +467,9 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
   .proj-featured{grid-template-columns:1fr}
   .proj-featured .prj{min-height:auto}
   .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid .prj,
+  .proj-grid .prj:nth-child(4),
+  .proj-grid .prj:nth-child(5){grid-column:auto}
 }
 @media(max-width:620px){
   .proj-grid{grid-template-columns:1fr}
@@ -471,54 +479,76 @@ h3{font-size:clamp(1.3rem,2vw,1.65rem)}
 .projects-foot{padding-top:48px;text-align:center}
 
 /* ============ BRAND STRIP (full-bleed, tight) ============ */
-.brands{background:var(--paper);border-top:1px solid var(--steel-200);border-bottom:1px solid var(--steel-200);padding:44px 0;overflow:hidden}
-.brands-lab{display:block;text-align:center;font-family:var(--font-mono);font-weight:500;font-size:12px;letter-spacing:0.18em;color:var(--steel-500);text-transform:uppercase;margin-bottom:28px}
-.brands-marquee{position:relative;overflow:hidden;mask-image:linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);-webkit-mask-image:linear-gradient(90deg, transparent 0, black 6%, black 94%, transparent 100%);}
-.brands-track{display:flex;gap:80px;width:max-content;animation:brand-scroll 38s linear infinite;align-items:center}
+.brands{background:var(--paper);border-top:1px solid var(--steel-200);border-bottom:1px solid var(--steel-200);padding:70px 0;overflow:hidden}
+.brands-lab{display:block;text-align:center;font-family:var(--font-mono);font-weight:600;font-size:13px;letter-spacing:0.08em;color:var(--steel-600);text-transform:uppercase;margin-bottom:40px}
+.brands-marquee{position:relative;overflow:hidden;mask-image:linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);-webkit-mask-image:linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);}
+.brands-track{display:flex;gap:24px;width:max-content;animation:brand-scroll 34s linear infinite;align-items:center}
 .brands-track:hover{animation-play-state:paused}
-.brand-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-width:160px;height:64px}
-.brand-item img{max-height:52px;width:auto;object-fit:contain;filter:grayscale(100%);opacity:0.62;transition:opacity .25s ease, filter .25s ease}
-.brand-item:hover img{filter:grayscale(0%);opacity:1}
+.brand-item{flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-width:220px;height:120px;padding:0 10px}
+.brand-item img{max-height:100px;max-width:200px;width:auto;object-fit:contain;transition:transform .25s ease}
+.brand-item:hover img{transform:scale(1.05)}
 @keyframes brand-scroll{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
 }
 @media(max-width:620px){
-  .brand-item{min-width:120px;height:54px}
-  .brand-item img{max-height:44px}
-  .brands-track{gap:56px;animation-duration:30s}
+  .brands{padding:54px 0}
+  .brand-item{min-width:160px;height:96px}
+  .brand-item img{max-height:76px;max-width:150px}
+  .brands-track{gap:16px;animation-duration:28s}
 }
 
 /* ============ TESTIMONIALS, featured large + inline strip, NOT 3-card grid ============ */
-.voices{padding:110px 0;background:var(--paper)}
-.voices-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:stretch}
-@media(max-width:980px){.voices-grid{grid-template-columns:1fr}}
-.voice-main{
+.voices{padding:110px 0;background:var(--paper);overflow:hidden}
+.voices-head{text-align:center;max-width:720px;margin:0 auto 54px;padding:0 16px}
+.voices-head h2{margin-bottom:14px}
+.voices-head h2 .amp{color:var(--amber)}
+.voices-head p{color:var(--steel-600);font-size:1.02rem;line-height:1.6}
+
+.voices-viewport{position:relative;max-width:1100px;margin:0 auto;padding:0 16px}
+.voices-track{
+  display:flex;gap:24px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  padding:6px 4px 28px;
+  -ms-overflow-style:none;scrollbar-width:none;
+}
+.voices-track::-webkit-scrollbar{display:none}
+.v-card{
+  flex:0 0 100%;scroll-snap-align:center;
   background:var(--steel-900);color:var(--paper);
-  padding:54px 48px;border-radius:var(--r-md);
-  position:relative;
-  border-top:4px solid var(--amber);
-  display:flex;flex-direction:column;
+  padding:54px 56px 48px;border-radius:10px;
+  position:relative;border-top:4px solid var(--amber);
+  display:flex;flex-direction:column;gap:24px;
+  min-height:340px;
 }
-.voice-main::before{
-  content:"“";font-family:Georgia, serif;font-size:10rem;line-height:1;
-  position:absolute;top:18px;right:36px;color:var(--amber);opacity:0.25;
+.v-card::before{
+  content:"\201C";font-family:Georgia, serif;font-size:9rem;line-height:1;
+  position:absolute;top:20px;right:44px;color:var(--amber);opacity:0.22;
 }
-.voice-main .eyebrow{margin-bottom:20px}
-.voice-main blockquote{font-family:var(--font-display);font-size:clamp(1.3rem,2.3vw,1.9rem);font-weight:600;line-height:1.25;text-transform:uppercase;letter-spacing:0.005em;margin-bottom:28px}
-.voice-main cite{font-style:normal;font-family:var(--font-mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber)}
-.voice-main cite b{display:block;color:var(--paper);font-weight:700;margin-bottom:4px;font-size:13px}
+.v-stars{color:var(--amber);font-size:0.95rem;letter-spacing:0.2em}
+.v-card blockquote{font-family:var(--font-display);font-size:clamp(1.25rem,2.2vw,1.75rem);font-weight:600;line-height:1.3;text-transform:none;letter-spacing:0;color:var(--paper);position:relative;z-index:1}
+.v-card cite{font-style:normal;font-family:var(--font-mono);font-size:0.9rem;color:var(--amber);display:block;margin-top:auto;padding-top:8px;font-weight:500}
+.v-card cite b{display:block;color:var(--paper);font-weight:700;font-size:1rem;margin-bottom:4px;font-family:var(--font-display);text-transform:uppercase;letter-spacing:0.01em}
 
-.voice-side{display:flex;flex-direction:column;gap:18px}
-.voice-mini{
-  background:var(--paper-2);padding:26px 28px;border-radius:var(--r-md);
-  border-left:3px solid var(--amber);
+.voices-controls{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:18px}
+.v-btn{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--steel-200);
+  color:var(--ink);display:grid;place-items:center;cursor:pointer;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
 }
-.voice-mini p{font-size:1rem;color:var(--steel-700);line-height:1.5;margin-bottom:14px;font-weight:500}
-.voice-mini cite{font-style:normal;font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--steel-500)}
-.voice-mini cite b{display:block;color:var(--ink);font-weight:700;margin-bottom:2px}
+.v-btn:hover{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.v-dots{display:flex;gap:8px}
+.v-dot{width:8px;height:8px;border-radius:50%;background:var(--steel-200);border:none;cursor:pointer;transition:background .2s ease, width .2s ease;padding:0}
+.v-dot.active{background:var(--amber);width:28px;border-radius:4px}
 
-.voices-note{margin-top:24px;font-family:var(--font-mono);font-size:11px;color:var(--steel-500);letter-spacing:0.1em;text-transform:uppercase}
+.voices-note{margin-top:26px;text-align:center;font-family:var(--font-mono);font-size:0.82rem;color:var(--steel-500);letter-spacing:0.02em;text-transform:none}
+
+@media(max-width:720px){
+  .v-card{padding:40px 28px 36px;min-height:300px}
+  .v-card::before{font-size:6rem;right:24px;top:12px}
+}
 
 /* ============ FAQ, left-aligned asymmetric ============ */
 .faq{padding:110px 0;background:var(--paper-2)}
@@ -1139,49 +1169,61 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px
   </div>
   <div class="brands-marquee">
     <div class="brands-track">
-      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/_images/6353_eaton.jpg" alt="Eaton" loading="lazy" decoding="async"></div>
-      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/_images/9_ge.jpg" alt="GE" loading="lazy" decoding="async"></div>
+      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/6353_eaton.jpg" alt="Eaton" loading="lazy" decoding="async"></div>
+      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/9_ge.jpg" alt="GE" loading="lazy" decoding="async"></div>
       <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/2291_siemens.jpg" alt="Siemens" loading="lazy" decoding="async"></div>
       <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/9256_square-d.jpg" alt="Square D" loading="lazy" decoding="async"></div>
-      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/_images/4533_lutron.jpg" alt="Lutron" loading="lazy" decoding="async"></div>
+      <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/4533_lutron.jpg" alt="Lutron" loading="lazy" decoding="async"></div>
       <div class="brand-item"><img src="https://www.marinaelectricinc.com/pub/banner_images/5932_fluke.jpg" alt="Fluke" loading="lazy" decoding="async"></div>
       <!-- duplicate for seamless loop -->
-      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/_images/6353_eaton.jpg" alt="" loading="lazy" decoding="async"></div>
-      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/_images/9_ge.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/6353_eaton.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/9_ge.jpg" alt="" loading="lazy" decoding="async"></div>
       <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/2291_siemens.jpg" alt="" loading="lazy" decoding="async"></div>
       <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/9256_square-d.jpg" alt="" loading="lazy" decoding="async"></div>
-      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/_images/4533_lutron.jpg" alt="" loading="lazy" decoding="async"></div>
+      <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/4533_lutron.jpg" alt="" loading="lazy" decoding="async"></div>
       <div class="brand-item" aria-hidden="true"><img src="https://www.marinaelectricinc.com/pub/banner_images/5932_fluke.jpg" alt="" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
 
-<!-- ========== VOICES, featured + inline, not 3-card grid ========== -->
-<section class="voices">
+<!-- ========== VOICES, swipeable carousel ========== -->
+<section class="voices" id="voices">
   <div class="container">
-    <div class="voices-grid">
-      <div class="voice-main">
-        <div class="eyebrow">Client Feedback</div>
-        <blockquote>
-          &ldquo;Eduardo and his team installed our generator and ATS system. When the power went out last hurricane season, our marina was the only one on the block still running.&rdquo;
-        </blockquote>
-        <cite>
-          <b>Marina Owner</b>
-          Cutler Bay, FL
-        </cite>
+    <div class="voices-head">
+      <h2>What clients <span class="amp">say.</span></h2>
+      <p>Real words from marina owners, property managers, and developers we've worked with across South Florida and the Bahamas.</p>
+    </div>
+
+    <div class="voices-viewport">
+      <div class="voices-track" id="voicesTrack" role="region" aria-label="Client testimonials" tabindex="0">
+        <article class="v-card">
+          <div class="v-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>&ldquo;Eduardo and his team installed our generator and ATS system. When the power went out last hurricane season, our marina was the only one on the block still running.&rdquo;</blockquote>
+          <cite><b>Marina Owner</b> Cutler Bay, FL</cite>
+        </article>
+        <article class="v-card">
+          <div class="v-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>&ldquo;Their expertise in marina-specific electrical work is unmatched in South Florida. Exceptional on our dock pedestal project from survey through commissioning.&rdquo;</blockquote>
+          <cite><b>Marina Manager</b> Miami Beach Marina</cite>
+        </article>
+        <article class="v-card">
+          <div class="v-stars" aria-label="5 out of 5 stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <blockquote>&ldquo;Professional, on-time, and their knowledge of marine electrical codes saved us from costly compliance issues during the refit.&rdquo;</blockquote>
+          <cite><b>Property Developer</b> South Florida</cite>
+        </article>
       </div>
 
-      <div class="voice-side">
-        <div class="voice-mini">
-          <p>&ldquo;Their expertise in marina-specific electrical work is unmatched in South Florida. Exceptional on our dock pedestal project.&rdquo;</p>
-          <cite><b>Marina Manager</b> Miami Beach Marina</cite>
+      <div class="voices-controls">
+        <button class="v-btn" id="vPrev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
+        <div class="v-dots" id="vDots" role="tablist">
+          <button class="v-dot active" data-i="0" aria-label="Testimonial 1"></button>
+          <button class="v-dot" data-i="1" aria-label="Testimonial 2"></button>
+          <button class="v-dot" data-i="2" aria-label="Testimonial 3"></button>
         </div>
-        <div class="voice-mini">
-          <p>&ldquo;Professional, on-time, and their knowledge of marine electrical codes saved us from costly compliance issues during the refit.&rdquo;</p>
-          <cite><b>Property Developer</b> South Florida</cite>
-        </div>
+        <button class="v-btn" id="vNext" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
+
     <div class="voices-note">Client names on file, shared on request per NDA.</div>
   </div>
 </section>
@@ -1389,6 +1431,41 @@ form .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px
       if (!wasOpen) item.classList.add('open');
     });
   });
+
+  // Testimonial carousel
+  (function(){
+    const track = document.getElementById('voicesTrack');
+    const prev = document.getElementById('vPrev');
+    const next = document.getElementById('vNext');
+    const dots = Array.from(document.querySelectorAll('#vDots .v-dot'));
+    if(!track || !prev || !next) return;
+    const cards = Array.from(track.querySelectorAll('.v-card'));
+    let idx = 0;
+    function go(i){
+      idx = Math.max(0, Math.min(cards.length - 1, i));
+      cards[idx].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+      dots.forEach((d,j) => d.classList.toggle('active', j===idx));
+    }
+    prev.addEventListener('click', () => go(idx - 1));
+    next.addEventListener('click', () => go(idx + 1));
+    dots.forEach(d => d.addEventListener('click', () => go(parseInt(d.dataset.i, 10))));
+    // Sync dots on manual scroll
+    let scrollTO;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTO);
+      scrollTO = setTimeout(() => {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        let closest = 0, min = Infinity;
+        cards.forEach((c, j) => {
+          const cc = c.offsetLeft + c.clientWidth / 2;
+          const d = Math.abs(cc - center);
+          if(d < min){ min = d; closest = j; }
+        });
+        idx = closest;
+        dots.forEach((d,j) => d.classList.toggle('active', j===idx));
+      }, 80);
+    });
+  })();
 
   // Year
   document.getElementById('yr').textContent = new Date().getFullYear();
