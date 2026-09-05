@@ -90,8 +90,8 @@
   --navy-2:#16293C;
   --ink:#1B2733;
   --muted:#4C5B68;
-  --copper:#A0521F;
-  --copper-lt:#C9773F;
+  --sea:#0E6473;
+  --sea-lt:#5BBCCB;
   --line:#C7CFCD;
   --white:#FFFFFF;
   --nav-h:68px;
@@ -104,14 +104,14 @@
 html{scroll-padding-top:calc(var(--nav-h) + 20px)}
 body{font-family:var(--font-body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--steel)}
 img{max-width:100%;display:block}
-a{color:var(--copper);text-decoration:none}
+a{color:var(--sea);text-decoration:none}
 h1,h2,h3{font-family:var(--font-head);line-height:1.12;color:var(--ink)}
 .skip-link{position:absolute;left:-9999px;top:0;z-index:9999;background:#111;color:#fff;padding:12px 18px;font-weight:700;text-decoration:none}
 .skip-link:focus{left:0}
-:focus-visible{outline:3px solid var(--copper);outline-offset:2px}
+:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
 .container{max-width:1240px;margin:0 auto;padding:0 28px}
 .hl{position:relative;white-space:nowrap}
-.hl::after{content:"";position:absolute;left:0;right:0;bottom:0.06em;height:0.22em;background:var(--copper-lt);opacity:.45;z-index:-1}
+.hl::after{content:"";position:absolute;left:0;right:0;bottom:0.06em;height:0.22em;background:var(--sea-lt);opacity:.45;z-index:-1}
 .mono{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--muted)}
 body.locked{overflow:hidden}
 
@@ -131,9 +131,9 @@ body.locked{overflow:hidden}
 .nav-logo img{height:34px;width:auto}
 .nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
 .nav-links a{color:#E8EDF1;font-weight:500;font-size:.98rem;transition:color .15s}
-.nav-links a:hover{color:var(--copper-lt)}
+.nav-links a:hover{color:var(--sea-lt)}
 .nav-phone{color:#fff;font-family:var(--font-mono);font-size:.85rem;font-weight:500}
-.nav-phone:hover{color:var(--copper-lt)}
+.nav-phone:hover{color:var(--sea-lt)}
 .nav .btn-inverse{padding:11px 22px;font-size:.95rem}
 .nav-call{display:none;width:44px;height:44px;background:#fff;border-radius:2px;align-items:center;justify-content:center}
 .nav-call svg{width:20px;height:20px;fill:var(--navy)}
@@ -148,7 +148,7 @@ body.locked .hamburger{display:none}
 .drawer-close{background:none;border:none;color:#fff;font-size:1.9rem;line-height:1;cursor:pointer;padding:6px 10px}
 .drawer-links{list-style:none;flex:1}
 .drawer-links a{display:block;color:#E8EDF1;font-family:var(--font-head);font-weight:700;font-size:1.35rem;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-.drawer-links a:hover{color:var(--copper-lt)}
+.drawer-links a:hover{color:var(--sea-lt)}
 .drawer-foot{display:flex;flex-direction:column;gap:12px;padding-top:18px}
 .overlay{position:fixed;inset:0;background:rgba(8,14,20,.55);opacity:0;pointer-events:none;transition:opacity .25s;z-index:950}
 .overlay.open{opacity:1;pointer-events:auto}
@@ -157,22 +157,22 @@ body.locked .hamburger{display:none}
 .hero{padding:calc(var(--nav-h) + 60px) 0 56px;background:var(--steel)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:52px;align-items:center}
 .hero-copy{display:flex;flex-direction:column;gap:22px}
-.eyebrow-chip{align-self:flex-start;font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;color:var(--navy);background:var(--steel-2);border:1px solid var(--line);border-radius:2px;padding:6px 12px}
+.kick{font-weight:600;font-size:.85rem;color:var(--sea);letter-spacing:.01em}
 .hero h1{font-weight:900;font-size:clamp(2rem,4.2vw,3.3rem);letter-spacing:-.01em}
 .hero-sub{font-size:1.13rem;color:var(--muted);max-width:54ch}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.hero-tel{font-family:var(--font-mono);font-size:.92rem;color:var(--copper);font-weight:500}
+.hero-tel{font-family:var(--font-mono);font-size:.92rem;color:var(--sea);font-weight:500}
 .hero-proof{font-size:.95rem;color:var(--muted)}
 .hero-proof strong{color:var(--ink)}
 .hero-media{position:relative}
 .hero-photo{width:100%;height:460px;object-fit:cover;border-radius:2px;box-shadow:0 14px 40px rgba(15,30,46,.18)}
-.hero-media figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#DCE4EA;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;padding:9px 14px}
+.hero-media figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#DCE4EA;font-weight:600;font-size:.8rem;padding:9px 14px}
 
 /* ============ TRUST SENTENCE ============ */
 .trust{background:var(--navy);color:#DCE4EA;padding:44px 0}
 .trust p{font-family:var(--font-head);font-weight:500;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.5;max-width:1080px}
 .trust b{color:#fff;font-weight:700}
-.trust .num{font-family:var(--font-mono);color:var(--copper-lt);font-weight:500}
+.trust .num{font-family:var(--font-mono);color:var(--sea-lt);font-weight:500}
 
 /* ============ SERVICES GRID ============ */
 .services{padding:96px 0}
@@ -186,31 +186,27 @@ body.locked .hamburger{display:none}
 .svc-tile-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .svc-tile-body h3{font-size:1.04rem;font-weight:700;line-height:1.25}
 .svc-tile-body .mono{font-size:.68rem}
-.svc-tile-open{margin-top:auto;padding-top:8px;font-weight:600;font-size:.9rem;color:var(--copper)}
+.svc-tile-open{margin-top:auto;padding-top:8px;font-weight:600;font-size:.9rem;color:var(--sea)}
 .svc-tile:hover .svc-tile-open{color:var(--navy)}
 
 /* ============ PROJECTS ============ */
 .projects{background:var(--steel-2);padding:96px 0}
-.projects-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:40px}
+.projects-head{margin-bottom:40px}
 .projects-head h2{font-weight:900;font-size:clamp(1.7rem,3vw,2.4rem)}
-.projects-head .mono{color:var(--navy)}
-.proj-lead{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);background:var(--white);border-radius:2px;overflow:hidden;margin-bottom:22px;box-shadow:0 2px 10px rgba(15,30,46,.07);cursor:pointer;border:none;padding:0;text-align:left;font-family:var(--font-body);width:100%;transition:box-shadow .18s}
-.proj-lead:hover{box-shadow:0 14px 32px rgba(15,30,46,.16)}
-.proj-lead img{width:100%;height:340px;object-fit:cover}
-.proj-lead-body{padding:34px 36px;display:flex;flex-direction:column;gap:12px;justify-content:center}
-.proj-kicker{font-family:var(--font-mono);font-size:.74rem;color:var(--copper);letter-spacing:.05em}
-.proj-lead-body h3{font-family:var(--font-head);font-weight:900;font-size:1.6rem;line-height:1.15}
-.proj-lead-body p{color:var(--muted)}
-.proj-open{font-weight:600;font-size:.92rem;color:var(--copper)}
-.proj-lead:hover .proj-open,.proj-tile:hover .proj-open{color:var(--navy)}
+.proj-flag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);background:var(--navy);border-radius:2px;overflow:hidden;margin-bottom:26px}
+.proj-flag img{width:100%;height:100%;min-height:320px;object-fit:cover}
+.proj-flag-body{padding:40px 42px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.proj-flag-body .kick{color:var(--sea-lt)}
+.proj-flag-body h3{font-family:var(--font-head);font-weight:900;font-size:1.7rem;line-height:1.15;color:#fff}
+.proj-flag-body p{color:#AEBDC9}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.proj-tile{background:var(--white);border-radius:2px;overflow:hidden;cursor:pointer;border:none;padding:0;text-align:left;font-family:var(--font-body);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;box-shadow:0 2px 10px rgba(15,30,46,.07)}
-.proj-tile:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(15,30,46,.16)}
+.proj-tile{background:var(--white);border-radius:2px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s;box-shadow:0 2px 10px rgba(15,30,46,.07)}
+.proj-tile:hover{box-shadow:0 10px 26px rgba(15,30,46,.14)}
 .proj-tile img{width:100%;height:190px;object-fit:cover}
 .proj-tile-body{padding:18px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
 .proj-tile-body h3{font-size:1.08rem;font-weight:700;line-height:1.25}
 .proj-tile-body p{color:var(--muted);font-size:.93rem}
-.proj-tile-body .proj-open{margin-top:auto;padding-top:8px}
+.projects-note{margin-top:22px;font-size:.9rem;color:var(--muted)}
 
 /* ============ MODAL ============ */
 .modal-wrap{position:fixed;inset:0;z-index:1100;display:none;align-items:center;justify-content:center;padding:20px}
@@ -219,7 +215,7 @@ body.locked .hamburger{display:none}
 .modal{position:relative;background:var(--white);border-radius:2px;max-width:720px;width:100%;max-height:calc(100dvh - 40px);overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,.4)}
 .modal-photo{width:100%;height:300px;object-fit:cover}
 .modal-body{padding:28px 32px 32px}
-.modal-body .mono{display:block;margin-bottom:8px;color:var(--copper)}
+.modal-body .kick{display:block;margin-bottom:8px}
 .modal-body h3{font-family:var(--font-head);font-weight:900;font-size:1.5rem;margin-bottom:12px}
 .modal-body p{color:var(--muted);margin-bottom:14px}
 .modal-scope{font-size:.95rem;color:var(--ink);margin-bottom:20px;line-height:1.9}
@@ -231,9 +227,9 @@ body.locked .hamburger{display:none}
 .brands{padding:84px 0;background:var(--white);text-align:center}
 .brands h2{font-weight:900;font-size:clamp(1.4rem,2.4vw,1.9rem);margin-bottom:10px}
 .brands-lede{color:var(--muted);margin-bottom:40px}
-.brands-row{display:flex;gap:48px;flex-wrap:wrap;align-items:center;justify-content:center}
-.brands-row img{height:64px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.5;transition:filter .25s,opacity .25s,transform .25s}
-.brands-row img:hover{filter:grayscale(0);opacity:1;transform:translateY(-3px)}
+.brands-row{display:flex;gap:36px;flex-wrap:wrap;align-items:center;justify-content:center}
+.brands-row img{height:64px;width:auto;max-width:175px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) sepia(1) hue-rotate(175deg) saturate(3) brightness(1.22) contrast(1.15);transition:filter .3s,transform .3s}
+.brands-row img:hover{filter:none;transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){.brands-row img:hover{transform:none}}
 
 /* ============ QUOTE ============ */
@@ -246,7 +242,7 @@ body.locked .hamburger{display:none}
 .qq-sub{font-size:.9rem;color:var(--muted);margin-bottom:16px}
 .qq-dots{display:flex;gap:6px;margin-bottom:18px}
 .qq-dots i{width:26px;height:4px;background:var(--steel-2);border-radius:2px}
-.qq-dots i.on{background:var(--copper)}
+.qq-dots i.on{background:var(--sea)}
 .qq-step{display:none}
 .qq-step.on{display:block}
 .qq-tiles{display:grid;gap:10px}
@@ -256,8 +252,14 @@ body.locked .hamburger{display:none}
 .qq-tile b{display:block;font-family:var(--font-head);font-size:1rem}
 .qq-tile em{font-style:normal;font-size:.86rem;color:var(--muted)}
 .qq-tile input:checked + span{border-color:var(--navy);background:var(--steel)}
-.qq-tile input:focus-visible + span{outline:3px solid var(--copper);outline-offset:2px}
+.qq-tile input:focus-visible + span{outline:3px solid var(--sea);outline-offset:2px}
 .qq-step.err .qq-err{display:block}
+.qq-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.qq-chip{cursor:pointer}
+.qq-chip input{position:absolute;opacity:0}
+.qq-chip span{display:inline-block;border:1.5px solid var(--line);border-radius:2px;padding:8px 13px;font-size:.9rem;font-weight:500;transition:background .15s,border-color .15s,color .15s}
+.qq-chip input:checked + span{background:var(--navy);border-color:var(--navy);color:#fff}
+.qq-chip input:focus-visible + span{outline:3px solid var(--sea);outline-offset:2px}
 .qq-err{display:none;color:#B4451B;font-size:.88rem;margin-top:10px}
 .qq-field{margin-bottom:14px}
 .qq-field label{display:block;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:5px}
@@ -272,20 +274,20 @@ body.locked .hamburger{display:none}
 .qq-back:hover{color:var(--ink)}
 .qq-nav .btn-solid{padding:12px 24px}
 .consent-line{font-size:.8rem;color:var(--muted);margin:12px 0 0}
-.qq-done{display:none;background:var(--steel);border-left:3px solid var(--copper);padding:16px 18px;margin-top:6px}
+.qq-done{display:none;background:var(--steel);border-left:3px solid var(--sea);padding:16px 18px;margin-top:6px}
 .qq-done.show{display:block}
 .qq-call{font-size:.92rem;color:var(--muted);margin-top:16px}
 .contact-info h3{color:#fff;font-family:var(--font-head);font-weight:700;font-size:1.15rem;margin-bottom:14px}
 .contact-info address{font-style:normal;color:#AEBDC9;line-height:2;margin-bottom:10px}
 .contact-info address a{color:#fff}
-.contact-info address a:hover{color:var(--copper-lt)}
+.contact-info address a:hover{color:var(--sea-lt)}
 .call-btn{display:inline-block;margin:4px 0 26px;font-family:var(--font-mono);font-size:.95rem}
 .area-note{font-size:.92rem;color:#8FA0AD;margin-bottom:34px;max-width:40ch}
 .acc-item{border-top:1px solid rgba(255,255,255,.12)}
 .acc-item:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
 .acc-head{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 2px;text-align:left}
 .acc-head .q{font-family:var(--font-head);font-weight:700;font-size:1.02rem;color:#fff}
-.acc-head .tog{color:var(--copper-lt);font-size:1.3rem;line-height:1;transition:transform .3s}
+.acc-head .tog{color:var(--sea-lt);font-size:1.3rem;line-height:1;transition:transform .3s}
 .acc-item.open .tog{transform:rotate(45deg)}
 .acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
 .acc-body p{color:#AEBDC9;font-size:.96rem;padding:0 2px 16px;max-width:52ch}
@@ -297,7 +299,7 @@ body.locked .hamburger{display:none}
 .footer h4{color:#fff;font-family:var(--font-head);font-weight:700;font-size:1rem;margin-bottom:14px}
 .footer ul{list-style:none}
 .footer ul a{display:block;color:#9FAFBB;padding:5px 0;font-size:.95rem}
-.footer ul a:hover{color:var(--copper-lt)}
+.footer ul a:hover{color:var(--sea-lt)}
 .footer address{font-style:normal;line-height:2}
 .footer address a{color:#fff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:.86rem}
@@ -317,13 +319,17 @@ body.locked .hamburger{display:none}
 @media (max-width:900px){
   html{scroll-padding-top:calc(var(--nav-h-sm) + 20px)}
   .nav{height:var(--nav-h-sm)}
+  .nav-inner{gap:10px}
   .nav-links,.nav .nav-phone,.nav .btn-inverse{display:none}
   .nav-call{display:inline-flex;margin-left:auto}
-  .hamburger{display:block}
+  .hamburger{display:block;margin-left:0}
   .hero{padding:calc(var(--nav-h-sm) + 30px) 0 44px}
   .hero-grid{grid-template-columns:1fr;gap:26px}
   .hero h1{font-size:clamp(1.75rem,6.4vw,2.3rem)}
   .hero-photo{height:240px}
+  .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero-ctas .btn{padding-left:10px;padding-right:10px;font-size:.95rem}
+  .hero-tel{grid-column:1 / -1;padding-top:4px}
   .services{padding:64px 0}
   .svc-grid{gap:12px}
   .svc-tile img{height:110px}
@@ -332,9 +338,9 @@ body.locked .hamburger{display:none}
   .svc-tile-body .mono{display:none}
   .svc-tile-open{font-size:.82rem}
   .projects{padding:64px 0}
-  .proj-lead{grid-template-columns:1fr}
-  .proj-lead img{height:210px}
-  .proj-lead-body{padding:20px 20px 22px}
+  .proj-flag{grid-template-columns:1fr}
+  .proj-flag img{min-height:0;height:210px;order:-1}
+  .proj-flag-body{padding:20px 20px 24px}
   .proj-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .proj-tile img{height:120px}
   .proj-tile-body{padding:12px 12px 14px}
@@ -343,8 +349,8 @@ body.locked .hamburger{display:none}
   .modal-photo{height:200px}
   .modal-body{padding:20px 20px 24px}
   .brands{padding:56px 0}
-  .brands-row{gap:26px}
-  .brands-row img{height:44px;filter:grayscale(0);opacity:1}
+  .brands-row{gap:24px}
+  .brands-row img{height:52px;filter:none}
   .quote{padding:64px 0}
   .quote-grid{grid-template-columns:1fr;gap:44px}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -395,7 +401,7 @@ body.locked .hamburger{display:none}
   </ul>
   <div class="drawer-foot">
     <a class="btn btn-inverse" href="tel:+13059894959">Call (305) 989-4959</a>
-    <a class="btn btn-solid" style="background:var(--copper)" href="#quote">Get a Quote</a>
+    <a class="btn btn-solid" style="background:var(--sea)" href="#quote">Get a Quote</a>
   </div>
 </aside>
 
@@ -405,7 +411,6 @@ body.locked .hamburger{display:none}
 <section class="hero" id="hero">
   <div class="container hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow-chip">CUTLER BAY, FL · SERVING SOUTH FLORIDA &amp; THE BAHAMAS</span>
       <h1>The contractor behind <span class="hl">marina power</span> in South Florida.<br>Shore pedestal to power plant, since 2008.</h1>
       <p class="hero-sub">Marina Electric Inc. designs, builds, and maintains the electrical backbone of working marinas: substations, main switchboards, shore power pedestals, and full turbine power plants. One licensed team, 100% of the trade in house.</p>
       <div class="hero-ctas">
@@ -417,7 +422,7 @@ body.locked .hamburger{display:none}
     </div>
     <figure class="hero-media">
       <img class="hero-photo" src="https://www.marinaelectricinc.com/pub/banner_images/6040_index-1.jpg" alt="Miami Beach Marina docks at the southern end of South Beach, powered by Marina Electric" fetchpriority="high">
-      <figcaption>MIAMI BEACH MARINA · 400+ SLIPS ON OUR POWER</figcaption>
+      <figcaption>Miami Beach Marina · 400+ slips on our power</figcaption>
     </figure>
   </div>
 </section>
@@ -478,43 +483,42 @@ body.locked .hamburger{display:none}
   <div class="container">
     <div class="projects-head">
       <h2>The work speaks. <span class="hl">Loudly.</span></h2>
-      <span class="mono">7 FEATURED · FL &amp; BAHAMAS</span>
     </div>
-    <button class="proj-lead" data-modal="p-mbm">
-      <img src="https://www.marinaelectricinc.com/pub/media/2023/03/miami.jpeg" alt="Miami Beach Marina slips and superyacht dockage" loading="lazy">
-      <div class="proj-lead-body">
-        <span class="proj-kicker">MIAMI BEACH, FL · SUNTEX MARINA</span>
+    <div class="proj-flag">
+      <div class="proj-flag-body">
+        <span class="kick">Miami Beach, FL · Suntex marina</span>
         <h3>Miami Beach Marina</h3>
-        <p>The most iconic marina in Florida: 400+ slips, superyacht dockage, and Marina Electric as its preferred in-house electrical contractor.</p>
-        <span class="proj-open">Open project</span>
+        <p>The most iconic marina in Florida: 400+ slips, superyacht dockage, and Marina Electric as its preferred in-house electrical contractor. Substations, pedestals, EV charging, fuel pump wiring, and everything between the meter and the megayacht.</p>
       </div>
-    </button>
-    <div class="proj-grid">
-      <button class="proj-tile" data-modal="p-walker">
-        <img src="https://www.marinaelectricinc.com/pub/media/2022/m5.jpg" alt="Walker's Cay marina renovation in the Bahamas" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">ABACO, BAHAMAS</span><h3>Walker's Cay</h3><p>64 pedestals, six substations, and a new turbine power plant for an island reborn.</p><span class="proj-open">Open project</span></div>
-      </button>
-      <button class="proj-tile" data-modal="p-grand">
-        <img src="https://www.marinaelectricinc.com/pub/media/2023/03/m8.jpeg" alt="Grand Cay power grid work in the Bahamas" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">ABACO, BAHAMAS</span><h3>Little Grand Cay</h3><p>Grid data logs and full electrical drawings for a new island power plant.</p><span class="proj-open">Open project</span></div>
-      </button>
-      <button class="proj-tile" data-modal="p-star">
-        <img src="https://www.marinaelectricinc.com/pub/media/2022/g12.jpg" alt="Generator installation at a Star Island waterfront estate" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">MIAMI BEACH, FL</span><h3>Star Island</h3><p>Generator installed and permitted for a private waterfront estate.</p><span class="proj-open">Open project</span></div>
-      </button>
-      <button class="proj-tile" data-modal="p-gables">
-        <img src="https://www.marinaelectricinc.com/pub/media/2022/g11.png" alt="480 volt three phase service at Gables by the Sea" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">CORAL GABLES, FL</span><h3>Gables by the Sea</h3><p>New 480V 3-phase mega yacht service, delivered with FPL.</p><span class="proj-open">Open project</span></div>
-      </button>
-      <button class="proj-tile" data-modal="p-river">
-        <img src="https://www.marinaelectricinc.com/pub/media/2022/m10.png" alt="Boat lifts and lighting at River Cove Marina on the Miami River" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">MIAMI RIVER, FL</span><h3>River Cove Marina</h3><p>Boat lifts and outside lighting on the Miami River.</p><span class="proj-open">Open project</span></div>
-      </button>
-      <button class="proj-tile" data-modal="p-storage">
-        <img src="https://www.marinaelectricinc.com/pub/media/2022/g13.png" alt="Electrical work at the A+ Mini Storage warehouse in Lauderhill" loading="lazy">
-        <div class="proj-tile-body"><span class="proj-kicker">LAUDERHILL, FL</span><h3>A+ Mini Storage</h3><p>AC power, lighting controls, and fire alarm across 45,000 sq ft.</p><span class="proj-open">Open project</span></div>
-      </button>
+      <img src="https://www.marinaelectricinc.com/pub/media/2023/03/miami.jpeg" alt="Miami Beach Marina slips and superyacht dockage" loading="lazy">
     </div>
+    <div class="proj-grid">
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2022/m5.jpg" alt="Walker's Cay marina renovation in the Bahamas" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Abaco, Bahamas</span><h3>Walker's Cay</h3><p>64 pedestals, six substations, and a new turbine power plant for an island reborn.</p></div>
+      </div>
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2023/03/m8.jpeg" alt="Grand Cay power grid work in the Bahamas" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Abaco, Bahamas</span><h3>Little Grand Cay</h3><p>Grid data logs and full electrical drawings for a new island power plant.</p></div>
+      </div>
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2022/g12.jpg" alt="Generator installation at a Star Island waterfront estate" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Miami Beach, FL</span><h3>Star Island</h3><p>Generator installed and permitted for a private waterfront estate.</p></div>
+      </div>
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2022/g11.png" alt="480 volt three phase service at Gables by the Sea" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Coral Gables, FL</span><h3>Gables by the Sea</h3><p>New 480V 3-phase mega yacht service, delivered with FPL.</p></div>
+      </div>
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2022/m10.png" alt="Boat lifts and lighting at River Cove Marina on the Miami River" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Miami River, FL</span><h3>River Cove Marina</h3><p>Boat lifts and outside lighting on the Miami River.</p></div>
+      </div>
+      <div class="proj-tile">
+        <img src="https://www.marinaelectricinc.com/pub/media/2022/g13.png" alt="Electrical work at the A+ Mini Storage warehouse in Lauderhill" loading="lazy">
+        <div class="proj-tile-body"><span class="kick">Lauderhill, FL</span><h3>A+ Mini Storage</h3><p>AC power, lighting controls, and fire alarm across 45,000 sq ft.</p></div>
+      </div>
+    </div>
+    <p class="projects-note">Each project opens its own dedicated page on the complete site.</p>
   </div>
 </section>
 
@@ -544,7 +548,7 @@ body.locked .hamburger{display:none}
         <p class="qq-title">What needs power?</p>
         <p class="qq-sub">Tap the closest one. We sort the details on the call.</p>
         <form class="qq-form" novalidate>
-          <div class="qq-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+          <div class="qq-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
           <div class="qq-step on" data-qq="1">
             <div class="qq-tiles">
               <label class="qq-tile"><input type="radio" name="want" value="Marina and dock power"><span><b>Marina &amp; dock power</b><em>Pedestals, substations, switchboards, dock wiring</em></span></label>
@@ -554,11 +558,17 @@ body.locked .hamburger{display:none}
             <div class="qq-err">Tap the closest one. We sort the details on the call.</div>
           </div>
           <div class="qq-step" data-qq="2">
+            <div class="qq-field"><label id="chipLabel">Narrow it down <span class="qq-opt">pick any that apply</span></label>
+              <div class="qq-chips" id="qqChips" role="group" aria-labelledby="chipLabel"></div>
+            </div>
+            <div class="qq-nav"><button type="button" class="qq-back">Back</button><button type="button" class="btn btn-solid qq-next">Next</button></div>
+          </div>
+          <div class="qq-step" data-qq="3">
             <div class="qq-field" id="qqf-loc"><label for="qqLoc">Where is the project?</label><input type="text" id="qqLoc" name="location" placeholder="Marina name, city, or dock address"><div class="qq-msg">A marina name or a city is enough to route it.</div></div>
             <div class="qq-field"><label for="qqDet">What is going on? <span class="qq-opt">optional</span></label><input type="text" id="qqDet" name="details" placeholder="Pedestals failing, new build, generator down"></div>
             <div class="qq-nav"><button type="button" class="qq-back">Back</button><button type="button" class="btn btn-solid qq-next">Next</button></div>
           </div>
-          <div class="qq-step" data-qq="3">
+          <div class="qq-step" data-qq="4">
             <div class="qq-field" id="qqf-name"><label for="qqName">Name</label><input type="text" id="qqName" name="name" placeholder="Name or company" autocomplete="name"><div class="qq-msg">We need a name to call back.</div></div>
             <div class="qq-field" id="qqf-phone"><label for="qqPhone">Phone</label><input type="tel" id="qqPhone" name="phone" placeholder="(305) 555-0123" autocomplete="tel"><div class="qq-msg">Enter a valid phone number, like (305) 555-0123.</div></div>
             <div class="qq-field" id="qqf-email"><label for="qqEmail">Email <span class="qq-opt">optional</span></label><input type="email" id="qqEmail" name="email" placeholder="you@marina.com" autocomplete="email"><div class="qq-msg">That looks incomplete. Try you@email.com.</div></div>
@@ -606,7 +616,7 @@ body.locked .hamburger{display:none}
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
     <img class="modal-photo" id="modalPhoto" src="" alt="">
     <div class="modal-body">
-      <span class="mono" id="modalKicker"></span>
+      <span class="kick" id="modalKicker"></span>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
       <div class="modal-scope" id="modalScope"></div>
@@ -699,97 +709,61 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
 
   /* ===== modal content ===== */
   var MODAL_DATA = {
-    "power-plants": { kicker:"SERVICE · TURBINE / NAT-GAS", title:"Power Plants",
+    "power-plants": { kicker:"Service · Power generation", title:"Power Plants",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_6279_power-plant.jpg",
       alt:"Natural gas turbine power plant construction by Marina Electric",
       desc:"Design and construction of full generation plants, like the natural gas turbine plant powering Walker's Cay and Grand Cay in the Bahamas.",
       scope:"Electrical drawings and load studies · turbine plant construction · substation integration · data power logs at full load",
       want:"Generators and power plants" },
-    "pedestals": { kicker:"SERVICE · 30A / 50A / 100A SHORE", title:"Shore Power Pedestals",
+    "pedestals": { kicker:"Service · 30A / 50A / 100A shore power", title:"Shore Power Pedestals",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_6605_power-pedestails.jpg",
       alt:"Shore power pedestals installed on a marina dock",
       desc:"Installation, testing, and lighting controls for dock pedestals, including mega yacht GTX service.",
       scope:"Pedestal installation and replacement · receptacle voltage and resistance testing · ground integrity and polarity checks · pedestal lighting controls",
       want:"Marina and dock power" },
-    "switchboards": { kicker:"SERVICE · MDP / PANELS", title:"Switchboards & Distribution",
+    "switchboards": { kicker:"Service · Distribution", title:"Switchboards & Distribution",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_5288_switchboard.jpg",
       alt:"Main distribution switchboard built by Marina Electric",
       desc:"Main distribution panels, dock substations, and pad-mount transformers built for salt-air environments.",
       scope:"MDP and metering · dock substation replacement · pad-mount transformers · electrical panel replacement",
       want:"Marina and dock power" },
-    "generators": { kicker:"SERVICE · BACKUP / ATS", title:"Generators & ATS",
+    "generators": { kicker:"Service · Backup power", title:"Generators & ATS",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_6920_gen.jpg",
       alt:"Backup generator and automatic transfer switch installation",
       desc:"Backup generator installation with automatic transfer switching, so the marina keeps its lights, lifts, and fuel pumps through an outage.",
       scope:"Generator sizing and installation · automatic transfer switches · fuel pump wiring · emergency and critical power systems",
       want:"Generators and power plants" },
-    "boatlifts": { kicker:"SERVICE · NEW / REPLACE", title:"Boat Lift Controls",
+    "boatlifts": { kicker:"Service · Dock equipment", title:"Boat Lift Controls",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_9639_m_3859_boatlifting-2.jpg",
       alt:"Boat lift control wiring at a private dock",
       desc:"New power lifts and control wiring built for the wet, corrosive dock environment.",
       scope:"New power lifts · control wiring and replacement · waterproof splices as standard practice",
       want:"Something else" },
-    "commercial": { kicker:"SERVICE · DESIGN-BUILD", title:"Commercial Installation",
+    "commercial": { kicker:"Service · Design-build", title:"Commercial Installation",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_9929_commercial-instalation.jpg",
       alt:"Commercial electrical installation in progress",
       desc:"Full commercial and residential electrical installation, from drawings to final inspection.",
       scope:"Project budgeting and estimating · value engineering · EV charging stations · site and landscaping power",
       want:"Something else" },
-    "fire": { kicker:"SERVICE · LOW VOLTAGE", title:"Fire Alarm & Surge Protection",
+    "fire": { kicker:"Service · Low voltage", title:"Fire Alarm & Surge Protection",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_6017_fire.jpeg",
       alt:"Fire alarm system panel installed by Marina Electric",
       desc:"Fire alarm systems, surge protection, and security power for marina buildings and fuel docks.",
       scope:"Fire alarm systems · surge protectors · CCTV and access control power · security camera power",
       want:"Something else" },
-    "lighting": { kicker:"SERVICE · DOCK / SITE", title:"Lighting & Controls",
+    "lighting": { kicker:"Service · Dock and site", title:"Lighting & Controls",
       img:"https://www.marinaelectricinc.com/pub/content_images/m_3163_lighing.jpeg",
       alt:"Marina dock and surrounding area lighting",
       desc:"Dock, landscape, and surrounding-area lighting with modern controls, engineered for energy savings and code compliance.",
       scope:"Outside surrounding lighting · lighting controls · landscaping power · energy savings and compliance",
-      want:"Something else" },
-    "p-mbm": { kicker:"PROJECT · MIAMI BEACH, FL", title:"Miami Beach Marina",
-      img:"https://www.marinaelectricinc.com/pub/media/2023/03/miami.jpeg",
-      alt:"Miami Beach Marina slips and superyacht dockage",
-      desc:"The most iconic marina in Florida, 400+ slips with superyacht dockage. Marina Electric is the preferred in-house electrical contractor for this Suntex-managed marina.",
-      scope:"Replaced dock wiring · waterproof splices · new power lifts · replaced substations and breakers · data log records · fuel pump wiring · camera and landscaping power · EV charging stations · surrounding lighting · data and communication conduits",
-      want:"Marina and dock power" },
-    "p-walker": { kicker:"PROJECT · ABACO, BAHAMAS", title:"Walker's Cay",
-      img:"https://www.marinaelectricinc.com/pub/media/2022/m5.jpg",
-      alt:"Walker's Cay marina renovation in the Bahamas",
-      desc:"Walker's Cay Reborn 2020: the legendary big-game fishing island, rebuilt. Marina Electric completed the marina renovation and constructed a new natural gas turbine power plant, working alongside Bahamian contractor EMM.",
-      scope:"64 shore power pedestals · six substations · three MDP · six mega yacht GTX · pad-mount transformer · net voltage for marina · data power log at full load · pedestal lighting controls · logistics and electrical drawings",
-      want:"Generators and power plants" },
-    "p-grand": { kicker:"PROJECT · ABACO, BAHAMAS", title:"Little Grand Cay",
-      img:"https://www.marinaelectricinc.com/pub/media/2023/03/m8.jpeg",
-      alt:"Grand Cay power grid work in the Bahamas",
-      desc:"Grand Cay sits just south of Walker's Cay. Marina Electric balanced the island's existing grid and engineered its next power plant.",
-      scope:"Recorded data logs · power grid electrical drawing to balance the current grid · design and drawings for the new island power plant",
-      want:"Generators and power plants" },
-    "p-star": { kicker:"PROJECT · MIAMI BEACH, FL", title:"Star Island",
-      img:"https://www.marinaelectricinc.com/pub/media/2022/g12.jpg",
-      alt:"Generator installation at a Star Island waterfront estate",
-      desc:"On Star Island, the exclusive man-made island in Biscayne Bay, Marina Electric installed and permitted an electrical generator for a privately owned waterfront estate.",
-      scope:"Generator installation · permitting · waterfront estate power",
-      want:"Generators and power plants" },
-    "p-gables": { kicker:"PROJECT · CORAL GABLES, FL", title:"Gables by the Sea",
-      img:"https://www.marinaelectricinc.com/pub/media/2022/g11.png",
-      alt:"480 volt three phase service at Gables by the Sea",
-      desc:"In this exclusive waterfront community on Biscayne Bay, Marina Electric installed a new 480 Volt 3-Phase mega yacht service in combination with FPL for a privately owned waterfront estate.",
-      scope:"New 480V 3-phase service · mega yacht power · FPL coordination",
-      want:"Marina and dock power" },
-    "p-river": { kicker:"PROJECT · MIAMI RIVER, FL", title:"River Cove Marina",
-      img:"https://www.marinaelectricinc.com/pub/media/2022/m10.png",
-      alt:"Boat lifts and lighting at River Cove Marina on the Miami River",
-      desc:"Working marina on the Miami River.",
-      scope:"Boat lifts · outside lighting",
-      want:"Something else" },
-    "p-storage": { kicker:"PROJECT · LAUDERHILL, FL", title:"A+ Mini Storage",
-      img:"https://www.marinaelectricinc.com/pub/media/2022/g13.png",
-      alt:"Electrical work at the A+ Mini Storage warehouse in Lauderhill",
-      desc:"A 45,000 square foot warehouse near Lauderhill Mall in Broward County, delivered with Overholt Construction.",
-      scope:"Power for AC units · lighting controls · fire alarm",
       want:"Something else" }
   };
+  var CHIP_MAP = {
+    "Marina and dock power": ["Shore power pedestals","Substations & transformers","Switchboards & MDP","Dock wiring & splices","Metering & data logs"],
+    "Generators and power plants": ["Backup generator","Automatic transfer switch","Turbine power plant","Fuel pump wiring"],
+    "Something else": ["Commercial installation","Lighting & controls","Fire alarm & surge","Boat lift controls","EV charging","Not sure yet"]
+  };
+  var SVC_CHIP = { "power-plants":"Turbine power plant", "pedestals":"Shore power pedestals", "switchboards":"Switchboards & MDP", "generators":"Backup generator", "boatlifts":"Boat lift controls", "commercial":"Commercial installation", "fire":"Fire alarm & surge", "lighting":"Lighting & controls" };
 
   var modalWrap = document.getElementById('modalWrap');
   var lastFocus = null;
@@ -803,7 +777,9 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
     document.getElementById('modalScope').textContent = d.scope;
     var ph = document.getElementById('modalPhoto');
     ph.src = d.img; ph.alt = d.alt;
-    document.getElementById('modalCta').setAttribute('data-want', d.want);
+    var cta = document.getElementById('modalCta');
+    cta.setAttribute('data-want', d.want);
+    cta.setAttribute('data-chip', SVC_CHIP[key] || '');
     modalWrap.classList.add('open');
     document.body.classList.add('locked');
     document.getElementById('modalClose').focus();
@@ -820,9 +796,10 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
   document.getElementById('modalBg').addEventListener('click', closeModal);
   document.getElementById('modalCta').addEventListener('click', function(){
     var v = this.getAttribute('data-want');
+    var chip = this.getAttribute('data-chip');
     closeModal();
     var r = document.querySelector('.qq-tile input[value="' + v + '"]');
-    if (r) { r.checked = true; if (typeof qqAdvanceFromChoice === 'function') qqAdvanceFromChoice(); }
+    if (r) { r.checked = true; if (typeof qqPreset === 'function') qqPreset(chip); }
     document.getElementById('quote').scrollIntoView({behavior:'smooth'});
   });
   document.addEventListener('keydown', function(e){
@@ -850,14 +827,35 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
     if (!flag('qqf-email', em !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em))) ok = false;
     return ok;
   }
-  window.qqAdvanceFromChoice = function(){ steps[0].classList.remove('err'); if (cur === 0) show(1); };
+  var chipsBox = document.getElementById('qqChips');
+  function buildChips(group, presetChip){
+    chipsBox.innerHTML = '';
+    (CHIP_MAP[group] || []).forEach(function(c){
+      var l = document.createElement('label');
+      l.className = 'qq-chip';
+      var i = document.createElement('input');
+      i.type = 'checkbox'; i.name = 'need'; i.value = c;
+      if (presetChip && presetChip === c) i.checked = true;
+      var s = document.createElement('span');
+      s.textContent = c;
+      l.appendChild(i); l.appendChild(s);
+      chipsBox.appendChild(l);
+    });
+  }
+  window.qqPreset = function(chip){
+    steps[0].classList.remove('err');
+    var g = form.querySelector('input[name="want"]:checked');
+    buildChips(g ? g.value : '', chip || '');
+    show(1);
+  };
   form.querySelectorAll('.qq-next').forEach(function(b){ b.addEventListener('click', function(){
-    if (cur === 1 && !v2()) return;
+    if (cur === 2 && !v2()) return;
     show(cur + 1);
   }); });
   form.querySelectorAll('.qq-back').forEach(function(b){ b.addEventListener('click', function(){ show(cur - 1); }); });
   form.querySelectorAll('input[name="want"]').forEach(function(r){ r.addEventListener('change', function(){
     steps[0].classList.remove('err');
+    buildChips(r.value, '');
     setTimeout(function(){ if (cur === 0) show(1); }, 180);
   }); });
   form.querySelectorAll('.qq-field input').forEach(function(inp){ inp.addEventListener('input', function(){
@@ -867,9 +865,13 @@ if ('scrollRestoration' in history) { history.scrollRestoration = 'auto'; }
     e.preventDefault();
     if (!v1()) { show(0); return; }
     if (!v3()) return;
+    var needs = [].slice.call(form.querySelectorAll('input[name="need"]:checked')).map(function(c){ return c.value; });
+    var g = form.querySelector('input[name="want"]:checked');
+    var summary = g ? g.value : '';
+    if (needs.length) summary += ' · ' + needs.join(' · ');
     var done = document.getElementById('qqDone');
     form.querySelectorAll('.qq-step, .qq-dots').forEach(function(s){ s.style.display = 'none'; });
-    done.innerHTML = '<strong>Callback locked in.</strong> On the live site this reaches the Marina Electric inbox directly; this demo does not send yet. Need power now? Call <a href="tel:+13059894959">(305) 989-4959</a>.';
+    done.innerHTML = '<strong>Callback locked in.</strong> Request: ' + summary + '. On the live site this reaches the Marina Electric inbox directly; this demo does not send yet. Need power now? Call <a href="tel:+13059894959">(305) 989-4959</a>.';
     done.classList.add('show');
   });
 
