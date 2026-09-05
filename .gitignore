@@ -1,6 +1,7 @@
 # Local-only project docs. Never pushed, never deployed.
 README.md
 qa/
+pitch-message.md
 credentials.md
 design-direction.md
 borrowed-patterns.md
