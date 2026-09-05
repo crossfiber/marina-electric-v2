@@ -84,10 +84,12 @@
 </script>
 <style>
 :root{
-  --steel:#F2F4F3;
-  --steel-2:#E7EBEA;
+  --steel:#EDF4F4;
+  --steel-2:#DFEBEB;
   --navy:#0F1E2E;
   --navy-2:#16293C;
+  --deep:#0B4552;
+  --deep-2:#0D515F;
   --ink:#1B2733;
   --muted:#4C5B68;
   --sea:#0E6473;
@@ -117,32 +119,33 @@ body.locked{overflow:hidden}
 
 /* ============ BUTTONS (squared) ============ */
 .btn{display:inline-block;border-radius:2px;font-weight:600;font-family:var(--font-body);cursor:pointer;border:none;text-align:center;transition:transform .15s,box-shadow .15s,background .15s;font-size:1rem}
-.btn-solid{background:var(--navy);color:#fff;padding:14px 28px;box-shadow:0 3px 12px rgba(15,30,46,.22)}
-.btn-solid:hover{background:var(--navy-2);transform:translateY(-2px);box-shadow:0 7px 18px rgba(15,30,46,.32);color:#fff}
+.btn-solid{background:var(--sea);color:#fff;padding:14px 28px;box-shadow:0 3px 12px rgba(14,100,115,.28)}
+.btn-solid:hover{background:var(--deep-2);transform:translateY(-2px);box-shadow:0 7px 18px rgba(14,100,115,.38);color:#fff}
 .btn-inverse{background:#fff;color:var(--navy);padding:14px 28px;box-shadow:0 3px 12px rgba(0,0,0,.25)}
 .btn-inverse:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(0,0,0,.35);color:var(--navy)}
 .btn-ghost{background:transparent;color:var(--ink);padding:13px 27px;border:1.5px solid var(--ink)}
 .btn-ghost:hover{transform:translateY(-2px);background:var(--ink);color:#fff}
 
 /* ============ NAV ============ */
-.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 2px 14px rgba(10,20,30,.25);z-index:900;display:flex;align-items:center}
+.nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 14px rgba(10,60,70,.08);z-index:900;display:flex;align-items:center}
 .nav-inner{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px}
 .logo-plate{display:inline-flex;align-items:center;background:#fff;border-radius:2px;padding:5px 10px}
-.nav-logo img{height:34px;width:auto}
+.nav-logo{display:inline-flex;align-items:center}
+.nav-logo img{height:38px;width:auto}
 .nav-links{display:flex;gap:26px;margin-left:auto;list-style:none}
-.nav-links a{color:#E8EDF1;font-weight:500;font-size:.98rem;transition:color .15s}
-.nav-links a:hover{color:var(--sea-lt)}
-.nav-phone{color:#fff;font-family:var(--font-mono);font-size:.85rem;font-weight:500}
-.nav-phone:hover{color:var(--sea-lt)}
-.nav .btn-inverse{padding:11px 22px;font-size:.95rem}
-.nav-call{display:none;width:44px;height:44px;background:#fff;border-radius:2px;align-items:center;justify-content:center}
-.nav-call svg{width:20px;height:20px;fill:var(--navy)}
+.nav-links a{color:var(--ink);font-weight:500;font-size:.98rem;transition:color .15s}
+.nav-links a:hover{color:var(--sea)}
+.nav-phone{color:var(--sea);font-family:var(--font-mono);font-size:.85rem;font-weight:500}
+.nav-phone:hover{color:var(--deep)}
+.nav .btn-solid{padding:11px 22px;font-size:.95rem}
+.nav-call{display:none;width:44px;height:44px;background:var(--sea);border-radius:2px;align-items:center;justify-content:center}
+.nav-call svg{width:20px;height:20px;fill:#fff}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:10px;margin-left:6px}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:.2s}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.2s}
 body.locked .hamburger{display:none}
 
 /* drawer */
-.drawer{position:fixed;top:0;right:0;width:min(340px,88vw);height:100dvh;background:var(--navy);z-index:1000;transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column;padding:24px 28px max(24px,env(safe-area-inset-bottom));visibility:hidden}
+.drawer{position:fixed;top:0;right:0;width:min(340px,88vw);height:100dvh;background:var(--deep);z-index:1000;transform:translateX(105%);transition:transform .28s ease;display:flex;flex-direction:column;padding:24px 28px max(24px,env(safe-area-inset-bottom));visibility:hidden}
 .drawer.open{transform:translateX(0);visibility:visible}
 .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px}
 .drawer-close{background:none;border:none;color:#fff;font-size:1.9rem;line-height:1;cursor:pointer;padding:6px 10px}
@@ -160,16 +163,18 @@ body.locked .hamburger{display:none}
 .kick{font-weight:600;font-size:.85rem;color:var(--sea);letter-spacing:.01em}
 .hero h1{font-weight:900;font-size:clamp(2rem,4.2vw,3.3rem);letter-spacing:-.01em}
 .hero-sub{font-size:1.13rem;color:var(--muted);max-width:54ch}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.hero-tel{font-family:var(--font-mono);font-size:.92rem;color:var(--sea);font-weight:500}
+.hero-ctas{display:inline-flex;flex-direction:column;gap:12px;align-items:stretch;align-self:flex-start}
+.hero-btnrow{display:flex;gap:14px}
+.hero-tel{display:block;border:1.5px solid var(--sea);border-radius:2px;padding:11px 16px;text-align:center;font-family:var(--font-mono);font-size:.95rem;color:var(--sea);font-weight:500;transition:background .15s,color .15s}
+.hero-tel:hover{background:var(--sea);color:#fff}
 .hero-proof{font-size:.95rem;color:var(--muted)}
 .hero-proof strong{color:var(--ink)}
 .hero-media{position:relative}
 .hero-photo{width:100%;height:460px;object-fit:cover;border-radius:2px;box-shadow:0 14px 40px rgba(15,30,46,.18)}
-.hero-media figcaption{position:absolute;left:0;bottom:0;background:var(--navy);color:#DCE4EA;font-weight:600;font-size:.8rem;padding:9px 14px}
+.hero-media figcaption{position:absolute;left:0;bottom:0;background:var(--deep);color:#DCE4EA;font-weight:600;font-size:.8rem;padding:9px 14px}
 
 /* ============ TRUST SENTENCE ============ */
-.trust{background:var(--navy);color:#DCE4EA;padding:44px 0}
+.trust{background:var(--deep);color:#DCE4EA;padding:44px 0}
 .trust p{font-family:var(--font-head);font-weight:500;font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.5;max-width:1080px}
 .trust b{color:#fff;font-weight:700}
 .trust .num{font-family:var(--font-mono);color:var(--sea-lt);font-weight:500}
@@ -193,12 +198,12 @@ body.locked .hamburger{display:none}
 .projects{background:var(--steel-2);padding:96px 0}
 .projects-head{margin-bottom:40px}
 .projects-head h2{font-weight:900;font-size:clamp(1.7rem,3vw,2.4rem)}
-.proj-flag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);background:var(--navy);border-radius:2px;overflow:hidden;margin-bottom:26px}
+.proj-flag{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);background:var(--deep);border-radius:2px;overflow:hidden;margin-bottom:26px}
 .proj-flag img{width:100%;height:100%;min-height:320px;object-fit:cover}
 .proj-flag-body{padding:40px 42px;display:flex;flex-direction:column;gap:12px;justify-content:center}
 .proj-flag-body .kick{color:var(--sea-lt)}
 .proj-flag-body h3{font-family:var(--font-head);font-weight:900;font-size:1.7rem;line-height:1.15;color:#fff}
-.proj-flag-body p{color:#AEBDC9}
+.proj-flag-body p{color:#C2D7DB}
 .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .proj-tile{background:var(--white);border-radius:2px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .18s;box-shadow:0 2px 10px rgba(15,30,46,.07)}
 .proj-tile:hover{box-shadow:0 10px 26px rgba(15,30,46,.14)}
@@ -219,24 +224,30 @@ body.locked .hamburger{display:none}
 .modal-body h3{font-family:var(--font-head);font-weight:900;font-size:1.5rem;margin-bottom:12px}
 .modal-body p{color:var(--muted);margin-bottom:14px}
 .modal-scope{font-size:.95rem;color:var(--ink);margin-bottom:20px;line-height:1.9}
-.modal-close{position:absolute;top:10px;right:10px;width:42px;height:42px;background:var(--navy);color:#fff;border:none;border-radius:2px;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
-.modal-close:hover{background:var(--navy-2)}
+.modal-close{position:absolute;top:10px;right:10px;width:42px;height:42px;background:var(--deep);color:#fff;border:none;border-radius:2px;font-size:1.5rem;line-height:1;cursor:pointer;z-index:2}
+.modal-close:hover{background:var(--deep-2)}
 .modal-note{font-family:var(--font-mono);font-size:.72rem;color:var(--muted);margin-top:14px}
 
 /* ============ BRANDS ============ */
 .brands{padding:84px 0;background:var(--white);text-align:center}
 .brands h2{font-weight:900;font-size:clamp(1.4rem,2.4vw,1.9rem);margin-bottom:10px}
 .brands-lede{color:var(--muted);margin-bottom:40px}
-.brands-row{display:flex;gap:36px;flex-wrap:wrap;align-items:center;justify-content:center}
-.brands-row img{height:64px;width:auto;max-width:175px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) sepia(1) hue-rotate(175deg) saturate(3) brightness(1.22) contrast(1.15);transition:filter .3s,transform .3s}
-.brands-row img:hover{filter:none;transform:translateY(-3px)}
-@media (prefers-reduced-motion:reduce){.brands-row img:hover{transform:none}}
+.brands-row{display:flex;gap:52px;flex-wrap:wrap;align-items:center;justify-content:center}
+.blogo{position:relative;display:inline-block;transition:transform .3s}
+.blogo img{height:60px;width:auto;max-width:210px;object-fit:contain;display:block}
+.blogo.tall img{height:88px}
+.blogo .me{position:absolute;inset:0;transition:opacity .3s;pointer-events:none}
+.blogo:hover{transform:translateY(-3px)}
+.blogo:hover .me{opacity:0}
+.btint{height:60px;width:auto;max-width:210px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) sepia(1) hue-rotate(140deg) saturate(3.2) brightness(1.14) contrast(1.18);transition:filter .3s,transform .3s}
+.btint:hover{filter:none;transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.blogo:hover,.btint:hover{transform:none}}
 
 /* ============ QUOTE ============ */
-.quote{background:var(--navy);color:#DCE4EA;padding:96px 0}
+.quote{background:var(--deep);color:#DCE4EA;padding:96px 0}
 .quote-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:60px;align-items:start}
 .quote h2{color:#fff;font-weight:900;font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:10px}
-.quote-lede{color:#AEBDC9;margin-bottom:28px;max-width:52ch}
+.quote-lede{color:#C2D7DB;margin-bottom:28px;max-width:52ch}
 .qq-card{background:var(--white);border-radius:2px;padding:26px 28px 28px;color:var(--ink)}
 .qq-title{font-family:var(--font-head);font-weight:700;font-size:1.12rem;margin-bottom:4px}
 .qq-sub{font-size:.9rem;color:var(--muted);margin-bottom:16px}
@@ -251,21 +262,21 @@ body.locked .hamburger{display:none}
 .qq-tile span{display:block;border:1.5px solid var(--line);border-radius:2px;padding:13px 16px;transition:border-color .15s,background .15s}
 .qq-tile b{display:block;font-family:var(--font-head);font-size:1rem}
 .qq-tile em{font-style:normal;font-size:.86rem;color:var(--muted)}
-.qq-tile input:checked + span{border-color:var(--navy);background:var(--steel)}
+.qq-tile input:checked + span{border-color:var(--sea);background:#EAF4F5}
 .qq-tile input:focus-visible + span{outline:3px solid var(--sea);outline-offset:2px}
 .qq-step.err .qq-err{display:block}
 .qq-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
 .qq-chip{cursor:pointer}
 .qq-chip input{position:absolute;opacity:0}
 .qq-chip span{display:inline-block;border:1.5px solid var(--line);border-radius:2px;padding:8px 13px;font-size:.9rem;font-weight:500;transition:background .15s,border-color .15s,color .15s}
-.qq-chip input:checked + span{background:var(--navy);border-color:var(--navy);color:#fff}
+.qq-chip input:checked + span{background:var(--deep);border-color:var(--sea);color:#fff}
 .qq-chip input:focus-visible + span{outline:3px solid var(--sea);outline-offset:2px}
 .qq-err{display:none;color:#B4451B;font-size:.88rem;margin-top:10px}
 .qq-field{margin-bottom:14px}
 .qq-field label{display:block;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:5px}
 .qq-opt{font-weight:400;color:var(--muted)}
 .qq-field input{width:100%;border:1.5px solid var(--line);border-radius:2px;font-family:var(--font-body);font-size:1rem;padding:11px 13px;background:#fff;color:var(--ink)}
-.qq-field input::placeholder{color:#7C8B97}
+.qq-field input::placeholder{color:#8AA7AE}
 .qq-field.err input{border-color:#B4451B}
 .qq-msg{display:none;color:#B4451B;font-size:.85rem;margin-top:4px}
 .qq-field.err .qq-msg{display:block}
@@ -278,11 +289,11 @@ body.locked .hamburger{display:none}
 .qq-done.show{display:block}
 .qq-call{font-size:.92rem;color:var(--muted);margin-top:16px}
 .contact-info h3{color:#fff;font-family:var(--font-head);font-weight:700;font-size:1.15rem;margin-bottom:14px}
-.contact-info address{font-style:normal;color:#AEBDC9;line-height:2;margin-bottom:10px}
+.contact-info address{font-style:normal;color:#C2D7DB;line-height:2;margin-bottom:10px}
 .contact-info address a{color:#fff}
 .contact-info address a:hover{color:var(--sea-lt)}
 .call-btn{display:inline-block;margin:4px 0 26px;font-family:var(--font-mono);font-size:.95rem}
-.area-note{font-size:.92rem;color:#8FA0AD;margin-bottom:34px;max-width:40ch}
+.area-note{font-size:.92rem;color:#93B7BE;margin-bottom:34px;max-width:40ch}
 .acc-item{border-top:1px solid rgba(255,255,255,.12)}
 .acc-item:last-child{border-bottom:1px solid rgba(255,255,255,.12)}
 .acc-head{width:100%;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 2px;text-align:left}
@@ -290,23 +301,23 @@ body.locked .hamburger{display:none}
 .acc-head .tog{color:var(--sea-lt);font-size:1.3rem;line-height:1;transition:transform .3s}
 .acc-item.open .tog{transform:rotate(45deg)}
 .acc-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.acc-body p{color:#AEBDC9;font-size:.96rem;padding:0 2px 16px;max-width:52ch}
+.acc-body p{color:#C2D7DB;font-size:.96rem;padding:0 2px 16px;max-width:52ch}
 
 /* ============ FOOTER ============ */
-.footer{background:#0A1520;color:#9FAFBB;padding:64px 0 0}
+.footer{background:#07333D;color:#9FC0C6;padding:64px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;padding-bottom:44px}
 .footer-brand p{font-size:.95rem;max-width:34ch}
 .footer h4{color:#fff;font-family:var(--font-head);font-weight:700;font-size:1rem;margin-bottom:14px}
 .footer ul{list-style:none}
-.footer ul a{display:block;color:#9FAFBB;padding:5px 0;font-size:.95rem}
+.footer ul a{display:block;color:#9FC0C6;padding:5px 0;font-size:.95rem}
 .footer ul a:hover{color:var(--sea-lt)}
 .footer address{font-style:normal;line-height:2}
 .footer address a{color:#fff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;font-size:.86rem}
 .footer-legal{display:flex;gap:18px}
-.footer-legal a{color:#9FAFBB}
+.footer-legal a{color:#9FC0C6}
 .footer-legal a:hover{color:#fff}
-.credit{display:inline-flex;align-items:center;gap:8px;color:#7C8B97}
+.credit{display:inline-flex;align-items:center;gap:8px;color:#8AA7AE}
 .credit img{height:20px;width:auto}
 .credit:hover{color:#fff}
 
@@ -320,16 +331,16 @@ body.locked .hamburger{display:none}
   html{scroll-padding-top:calc(var(--nav-h-sm) + 20px)}
   .nav{height:var(--nav-h-sm)}
   .nav-inner{gap:10px}
-  .nav-links,.nav .nav-phone,.nav .btn-inverse{display:none}
+  .nav-links,.nav .nav-phone,.nav .btn-solid{display:none}
   .nav-call{display:inline-flex;margin-left:auto}
   .hamburger{display:block;margin-left:0}
   .hero{padding:calc(var(--nav-h-sm) + 30px) 0 44px}
   .hero-grid{grid-template-columns:1fr;gap:26px}
   .hero h1{font-size:clamp(1.75rem,6.4vw,2.3rem)}
   .hero-photo{height:240px}
-  .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero-ctas{display:flex;align-self:stretch}
+  .hero-btnrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .hero-ctas .btn{padding-left:10px;padding-right:10px;font-size:.95rem}
-  .hero-tel{grid-column:1 / -1;padding-top:4px}
   .services{padding:64px 0}
   .svc-grid{gap:12px}
   .svc-tile img{height:110px}
@@ -349,8 +360,11 @@ body.locked .hamburger{display:none}
   .modal-photo{height:200px}
   .modal-body{padding:20px 20px 24px}
   .brands{padding:56px 0}
-  .brands-row{gap:24px}
-  .brands-row img{height:52px;filter:none}
+  .brands-row{gap:22px 30px}
+  .blogo img{height:54px;max-width:160px}
+  .blogo.tall img{height:74px}
+  .btint{height:54px;max-width:160px;filter:none}
+  .blogo .me{display:none}
   .quote{padding:64px 0}
   .quote-grid{grid-template-columns:1fr;gap:44px}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -367,7 +381,7 @@ body.locked .hamburger{display:none}
 
 <nav class="nav" aria-label="Main">
   <div class="nav-inner">
-    <a class="nav-logo logo-plate" href="#hero" aria-label="Marina Electric Inc. home">
+    <a class="nav-logo" href="#hero" aria-label="Marina Electric Inc. home">
       <img src="https://www.marinaelectricinc.com/pub/images/logo.svg" alt="Marina Electric Inc." width="102" height="34">
     </a>
     <ul class="nav-links">
@@ -377,7 +391,7 @@ body.locked .hamburger{display:none}
       <li><a href="#quote">Contact</a></li>
     </ul>
     <a class="nav-phone" href="tel:+13059894959">(305) 989-4959</a>
-    <a class="btn btn-inverse" href="#quote">Get a Quote</a>
+    <a class="btn btn-solid" href="#quote">Get a Quote</a>
     <a class="nav-call" href="tel:+13059894959" aria-label="Call Marina Electric at (305) 989-4959">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
     </a>
@@ -401,7 +415,7 @@ body.locked .hamburger{display:none}
   </ul>
   <div class="drawer-foot">
     <a class="btn btn-inverse" href="tel:+13059894959">Call (305) 989-4959</a>
-    <a class="btn btn-solid" style="background:var(--sea)" href="#quote">Get a Quote</a>
+    <a class="btn btn-solid" href="#quote">Get a Quote</a>
   </div>
 </aside>
 
@@ -414,8 +428,10 @@ body.locked .hamburger{display:none}
       <h1>The contractor behind <span class="hl">marina power</span> in South Florida.<br>Shore pedestal to power plant, since 2008.</h1>
       <p class="hero-sub">Marina Electric Inc. designs, builds, and maintains the electrical backbone of working marinas: substations, main switchboards, shore power pedestals, and full turbine power plants. One licensed team, 100% of the trade in house.</p>
       <div class="hero-ctas">
-        <a class="btn btn-solid" href="#quote">Get a Marina Quote</a>
-        <a class="btn btn-ghost" href="#projects">See the Work</a>
+        <div class="hero-btnrow">
+          <a class="btn btn-solid" href="#quote">Get a Quote</a>
+          <a class="btn btn-ghost" href="#projects">See the Work</a>
+        </div>
         <a class="hero-tel" href="tel:+13059894959">(305) 989-4959</a>
       </div>
       <p class="hero-proof">Preferred in-house electrical contractor for <strong>Miami Beach Marina</strong>, Florida's most iconic marina with over 400 slips.</p>
@@ -528,12 +544,12 @@ body.locked .hamburger{display:none}
     <h2>World-class brands we work with.</h2>
     <p class="brands-lede">Factory gear your marina already runs, installed by the people who know it.</p>
     <div class="brands-row">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/6353_eaton.jpg" alt="Eaton" loading="lazy">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/5932_fluke.jpg" alt="Fluke" loading="lazy">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/9_ge.jpg" alt="GE" loading="lazy">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/4533_lutron.jpg" alt="Lutron" loading="lazy">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/2291_siemens.jpg" alt="Siemens" loading="lazy">
-      <img src="https://www.marinaelectricinc.com/pub/banner_images/9256_square-d.jpg" alt="Square D" loading="lazy">
+      <span class="blogo"><img src="assets/brands/eaton.svg" alt="Eaton" loading="lazy"><img class="me" src="assets/brands/eaton-me.svg" alt="" aria-hidden="true"></span>
+      <img class="btint" src="https://www.marinaelectricinc.com/pub/banner_images/5932_fluke.jpg" alt="Fluke" loading="lazy">
+      <span class="blogo tall"><img src="assets/brands/ge.svg" alt="GE" loading="lazy"><img class="me" src="assets/brands/ge-me.svg" alt="" aria-hidden="true"></span>
+      <img class="btint" src="https://www.marinaelectricinc.com/pub/banner_images/4533_lutron.jpg" alt="Lutron" loading="lazy">
+      <span class="blogo"><img src="assets/brands/siemens.svg" alt="Siemens" loading="lazy"><img class="me" src="assets/brands/siemens-me.svg" alt="" aria-hidden="true"></span>
+      <img class="btint" src="https://www.marinaelectricinc.com/pub/banner_images/9256_square-d.jpg" alt="Square D" loading="lazy">
     </div>
   </div>
 </section>
